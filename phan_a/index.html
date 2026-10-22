@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thư Viện Lớp Học - Phần A (JS Thuần)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header: Tên thư viện & số sách yêu thích -->
+  <header class="app-header">
+    <div class="header-container">
+      <h1>📚 Thư Viện Lớp Học</h1>
+      <div class="header-actions">
+        <div class="fav-counter">
+          ❤️ Yêu thích: <span id="fav-count">0</span>
+        </div>
+        <button id="theme-toggle" class="btn-secondary">🌓 Đổi nền</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- Form thêm sách mới -->
+    <section class="card form-section">
+      <h2>Thêm Sách Mới</h2>
+      <form id="book-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="book-title">Tên sách:</label>
+            <input type="text" id="book-title" name="title" placeholder="Tối thiểu 3 ký tự">
+            <span class="error-msg" id="error-title"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="book-author">Tác giả:</label>
+            <input type="text" id="book-author" name="author" placeholder="Họ và tên tác giả">
+            <span class="error-msg" id="error-author"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="book-genre">Thể loại:</label>
+            <select id="book-genre" name="genre">
+              <option value="">-- Chọn thể loại --</option>
+              <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+              <option value="Văn học">Văn học</option>
+              <option value="Khoa học">Khoa học</option>
+            </select>
+            <span class="error-msg" id="error-genre"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="book-year">Năm xuất bản:</label>
+            <input type="number" id="book-year" name="year" placeholder="Từ 1900 đến nay">
+            <span class="error-msg" id="error-year"></span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">+ Thêm Vào Thư Viện</button>
+      </form>
+    </section>
+
+    <!-- Thanh công cụ: Tìm kiếm & Lọc thể loại -->
+    <section class="card toolbar-section">
+      <div class="toolbar">
+        <input type="text" id="search-input" placeholder="🔍 Tìm theo tên sách...">
+        <div id="genre-buttons" class="genre-group">
+          <!-- Các nút thể loại tạo tự động bằng Set sẽ render vào đây -->
+        </div>
+      </div>
+      <p id="status-text" class="status-indicator">Đang hiển thị: 0 / 0 cuốn</p>
+    </section>
+
+    <!-- Khu vực danh sách sách -->
+    <section class="book-list-section">
+      <!-- Thông báo trạng thái: đang tải / lỗi -->
+      <div id="feedback-message" class="feedback-box"></div>
+      <!-- Lưới thẻ sách (Grid/Flexbox: 3 cột máy tính, 1 cột điện thoại) -->
+      <div id="book-grid" class="book-grid"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Bài thực hành 02 - Phần A: DOM & JavaScript Module</p>
+  </footer>
+
+  <!-- Script module -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
